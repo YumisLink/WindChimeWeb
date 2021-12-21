@@ -1,8 +1,14 @@
 <template>
   <a-col>
     <a-page-header style="border: 1px solid rgb(235, 237, 240)">
-      <img class="icon" src="@/assets/Icon/Coin.png" />金币：{{ Money }}
-      <img class="icon" src="@/assets/Icon/Pebox.png" />Pebox：{{ Pebox }}
+      <span
+        ><img class="icon" src="@/assets/Icon/Coin.png" /> 金币：{{
+          Money
+        }}</span
+      >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span>
+        <img class="icon" src="@/assets/Icon/Pebox.png" />Pebox：{{ Pebox }}
+      </span>
     </a-page-header>
     <a-menu v-model="current" mode="horizontal">
       <a-menu-item key="mail" @click="onCardClick">
@@ -37,8 +43,8 @@ export default class Main extends Vue {
   public static Place = "Main";
   public created() {
     document.title = "风铃-商店";
-    this.Money = localStorage.Money ? 0 : localStorage.Money;
-    this.Pebox = localStorage.Pebox ? 0 : localStorage.Pebox;
+    this.Money = localStorage.Money;
+    this.Pebox = localStorage.Pebox;
   }
   public onCardClick() {
     this.Shop = "Card";
@@ -52,7 +58,7 @@ export default class Main extends Vue {
 </script>
 
 <style >
-.out {
+span {
   font-size: 120%;
 }
 .icon {

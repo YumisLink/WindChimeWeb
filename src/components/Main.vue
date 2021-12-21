@@ -55,7 +55,6 @@
             ><img src="@/assets/Icon/Love.png" class="icon" />
           </span>
         </p>
-        <a-button type="primary" @click="onClick"> Click </a-button>
       </a-card>
     </a-col>
     <a-col :span="6" style="margin: 10px"
@@ -71,10 +70,7 @@ import Home from "@/views/Home.vue";
 @Component({
   components: {},
 })
-export default class name extends Vue {
-  public created() {
-    document.title = "风铃-主页";
-  }
+export default class Main extends Vue {
   public jsonData = {
     name: "NUll",
     QQ: 0,
@@ -99,7 +95,8 @@ export default class name extends Vue {
     Password: null,
   };
   public HeadUrl = "";
-  public onClick() {
+  public created() {
+    document.title = "风铃-主页";
     var _this = this;
     axios({
       method: "post",
@@ -140,7 +137,7 @@ export default class name extends Vue {
   height: 25px;
 }
 p {
-  font-size: 100%;
+  font-size: 120%;
 }
 h2 {
   font-size: 200%;

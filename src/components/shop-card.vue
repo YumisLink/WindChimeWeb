@@ -1,16 +1,16 @@
 <template>
   <div>
     <div v-for="items in allGoods" v-bind:key="items.this">
-      <a-col :span="8">
+      <a-col :span="6">
         <div class="goodCard">
-          <div v-if="items.onSale < 100">
+          <div v-if="items.onSale > 0">
             <a-col :span="18" class="Top"></a-col>
             <a-col :span="6" class="Top OnTop OnSale"
               ><b>-{{ items.onSale }}%</b></a-col
             >
           </div>
           <a-card>
-            <img slot="cover" alt="example" :src="items.uri" />
+            <img alt="example" :src="items.uri" class="shopItemImg" />
             <template slot="actions" class="ant-card-actions">
               <a-icon key="setting" type="copyright" />
               <a-icon key="edit" type="edit" />
@@ -18,7 +18,7 @@
             </template>
             <a-card-meta
               :title="items.itemName"
-              :description="items.prices + '金币'"
+              :description="items.prices * (100 - items.onSale) * 0.01 + '金币'"
             >
             </a-card-meta>
           </a-card>
@@ -69,5 +69,9 @@ export default class ShopCard extends Vue {
   background: green;
   font-size: 120%;
   font: bolder;
+}
+
+.shopItemImg {
+  width: 50%;
 }
 </style>

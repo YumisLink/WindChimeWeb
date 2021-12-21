@@ -1,9 +1,11 @@
-<template></template>
+<template>
+  <div>Fish</div>
+</template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 @Component({})
-export default class Test extends Vue {}
+export default class Fish extends Vue {}
 </script>
 
 <style>

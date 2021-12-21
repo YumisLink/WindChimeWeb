@@ -64,6 +64,10 @@
         <a-col :span="18" class="context">
           <template v-if="page === 'Main'"><Main></Main></template>
           <template v-if="page === 'Shop'"><Shop></Shop></template>
+          <template v-if="page === 'Work'"><Work></Work></template>
+          <template v-if="page === 'Draw'"><Draw></Draw></template>
+          <template v-if="page === 'Fish'"><Fish></Fish></template>
+          <template v-if="page === 'Jewelry'"><Jewelry></Jewelry></template>
         </a-col>
         <a-col :span="3"> </a-col>
       </a-layout-content>
@@ -78,10 +82,18 @@
 import { Component, Vue } from "vue-property-decorator";
 import Main from "@/components/Main.vue";
 import Shop from "@/components/Shop.vue";
+import Work from "@/components/Work.vue";
+import Draw from "@/components/Draw.vue";
+import Fish from "@/components/Fish.vue";
+import Jewelry from "@/components/Jewelry.vue";
 @Component({
   components: {
     Main,
     Shop,
+    Work,
+    Draw,
+    Fish,
+    Jewelry,
   },
 })
 export default class Header extends Vue {
