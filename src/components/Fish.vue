@@ -10,15 +10,41 @@
       <div v-if="fishAns === 0">
         <a-spin :spinning="spinning">
           <div class="spin-content">
+            <p>
+              通过每次点击鼠标来按控制捕鱼条，让鱼保持在捕鱼条内，等到旁边的进度条满了之后就可以将鱼钓上岸。
+              左边选择你的渔场，渔场越高级，鱼的活跃度越高。
+            </p>
             <a-button type="danger" @click="starFishing">开始钓鱼</a-button>
           </div>
         </a-spin>
+      </div>
+      <div v-if="fishAns === 2">
+        <a-result
+          status="success"
+          title="Successfully"
+          :sub-title="'抓到了' + nowFishPlace + '号地区的鱼！'"
+        >
+          <template #extra>
+            <a-button key="console" type="primary" @click="handleOk">
+              Close
+            </a-button>
+          </template>
+        </a-result>
+      </div>
+      <div v-if="fishAns === 3">
+        <a-result status="error" title="Failed" :sub-title="'鱼跑了！！！'">
+          <template #extra>
+            <a-button key="console" type="primary" @click="handleOk">
+              Close
+            </a-button>
+          </template>
+        </a-result>
       </div>
       <div v-if="fishAns !== 0">
         <p>
           <a-col :span="24">
             <a-progress
-              :percent="((nowFishTarget / max) * 100).toFixed(2)"
+              :percent="parseFloat(((nowFishTarget / max) * 100).toFixed(2))"
               status="active"
             />
           </a-col>
@@ -115,18 +141,32 @@ export default class Fish extends Vue {
       var e = event || window.event || arguments.callee.caller.arguments[0];
       e.preventDefault(); //阻止默认事件
       if (e.button === 0) {
-        _this.moveSpeed += 1600;
+        _this.moveSpeed += 2000;
         if (_this.moveSpeed > 5000) _this.moveSpeed = 5000;
       }
     };
   }
   public goYourSilder() {
+    if (this.start <= this.min) {
+      this.moveSpeed = this.moveSpeed < -1000 ? -1000 : this.moveSpeed;
+      this.start = this.min;
+    }
+    if (this.start + this.length >= this.max) {
+      this.moveSpeed = this.moveSpeed > 1000 ? 1000 : this.moveSpeed;
+      this.start = this.max - this.length;
+    }
+    if (this.value < 0) {
+      this.value = 0;
+    }
+    if (this.value > this.max) {
+      this.value = this.max;
+    }
     if (this.nowFishTarget <= this.min) {
-      this.fishing = false;
+      this.endFishing();
       this.fishAns = 3;
     }
     if (this.nowFishTarget >= this.max) {
-      this.fishing = false;
+      this.endFishing();
       this.fishAns = 2;
     }
     if (this.start <= this.value && this.value <= this.start + this.length) {
@@ -138,33 +178,33 @@ export default class Fish extends Vue {
       this.nowFishTarget -= 10;
       if (this.nowFishTarget < this.min) this.nowFishTarget = this.min;
     }
-    if (this.fishing)
-      setTimeout(() => {
-        if (this.moveSpeed > -5000) {
-          this.moveSpeed -= 50;
-        }
-        if (this.start >= this.min) {
-          this.start += this.moveSpeed * 0.01;
-          this.goYourSilder();
-        }
-      }, 10);
+    this.moveSpeed -= 7000 * this.deltaTime;
+    if (this.start >= this.min) {
+      this.start += this.moveSpeed * this.deltaTime;
+      // this.goYourSilder();
+    }
+    if (this.moveSpeed < -5000) this.moveSpeed = -5000;
+    // this.tc2 = setTimeout(() => {}, 20);
   }
-  public goOnce(active: any) {
-    if (this.start <= this.min) {
-      this.moveSpeed = this.moveSpeed < -1000 ? -1000 : this.moveSpeed;
-      this.start = this.min;
+  public goOnce() {
+    // if (this.fishing) this.goOnce(active);
+    this.value += this.nowSpeed * this.deltaTime;
+    this.nowSpeed +=
+      this.nowSpeed > 0
+        ? -this.fishJson.fixSpeed * this.deltaTime
+        : this.fishJson.fixSpeed * this.deltaTime;
+    // this.tc2 = setTimeout(() => {}, 20);
+    if (this.nextAction <= 0) {
+      var act =
+        this.fishJson.action[
+          Math.floor(Math.random() * this.fishJson.actionCount)
+        ];
+      console.log("good");
+      if (Math.round(Math.random()) == 0) this.FishSpeed(act.power);
+      else this.FishSpeed(-act.power);
+      this.nextAction = act.time;
     }
-    if (this.start + this.length >= this.max) {
-      this.moveSpeed = this.moveSpeed > 1000 ? 1000 : this.moveSpeed;
-      this.start = this.max - this.length;
-    }
-    if (this.fishing)
-      setTimeout(() => {
-        this.goOnce(active);
-        if (this.value < 5000) {
-          this.value += 5;
-        }
-      }, 10);
+    this.nextAction -= this.deltaTime;
   }
   public showModal() {
     this.visible = true;
@@ -173,12 +213,10 @@ export default class Fish extends Vue {
   }
   public handleOk() {
     this.confirmLoading = true;
-    setTimeout(() => {
-      this.visible = false;
-      this.confirmLoading = false;
-      this.fishing = false;
-      this.initFish();
-    }, 100);
+    this.visible = false;
+    this.confirmLoading = false;
+    this.endFishing();
+    this.initFish();
   }
   public initFish() {
     this.start = 0;
@@ -211,9 +249,63 @@ export default class Fish extends Vue {
     this.fishAns = 1;
     this.fishing = true;
     this.initFish();
-    this.goYourSilder();
-    this.goOnce(1);
+    cancelAnimationFrame(this.tc);
+    var _this = this;
+    this.deltaTime = 1;
+    let T0 = new Date();
+    this.tc = requestAnimationFrame(function fn() {
+      let T1 = new Date();
+      _this.deltaTime = T1.getTime() - T0.getTime();
+      _this.deltaTime /= 1000;
+      T0 = T1;
+      if (_this.fishing) {
+        _this.goYourSilder();
+        _this.goOnce();
+        _this.tc = requestAnimationFrame(fn);
+      } else {
+        cancelAnimationFrame(_this.tc);
+      }
+    });
   }
+  lastest = 0;
+  endFishing() {
+    this.fishing = false;
+  }
+  FishSpeed(power: any) {
+    power = this.nowFishPlace * 0.1 * power + 1 * power;
+    this.nowSpeed = power;
+    if (power > 0 && this.value + power * 0.5 > this.max)
+      this.nowSpeed = -power;
+    if (power < 0 && this.value + power * 0.5 < this.min)
+      this.nowSpeed = -power;
+  }
+  fishJson = {
+    fixSpeed: 1000,
+    action: [
+      { power: 1000, time: 1 },
+      { power: 1000, time: 1 },
+      { power: 1000, time: 1 },
+      { power: 1000, time: 1 },
+      { power: 1000, time: 1 },
+      { power: 800, time: 1 },
+      { power: 800, time: 1 },
+      { power: 800, time: 1 },
+      { power: 800, time: 1 },
+      { power: 800, time: 1 },
+      { power: 1500, time: 1 },
+      { power: 1500, time: 1 },
+      { power: 1500, time: 1 },
+      { power: 1500, time: 1 },
+      { power: 1500, time: 1 },
+      { power: 2500, time: 1 },
+    ],
+    actionCount: 16,
+  };
+  nextAction = 0;
+  nowSpeed = 0;
+  tc!: any;
+  deltaTime = 0;
+  // t =
 }
 </script>
 
