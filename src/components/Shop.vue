@@ -2,12 +2,12 @@
   <a-col>
     <a-page-header style="border: 1px solid rgb(235, 237, 240)">
       <span
-        ><img class="icon" src="@/assets/Icon/Coin.png" /> 金币：{{
+        ><img class="icon" src="@/assets/icon/Coin.png" /> 金币：{{
           Money
         }}</span
       >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <span>
-        <img class="icon" src="@/assets/Icon/Pebox.png" />Pebox：{{ Pebox }}
+        <img class="icon" src="@/assets/icon/Pebox.png" />Pebox：{{ Pebox }}
       </span>
     </a-page-header>
     <a-menu v-model="current" mode="horizontal">
@@ -64,5 +64,9 @@ span {
 .icon {
   width: 25px;
   height: 25px;
+}
+.shopItemImg {
+  width: 100px;
+  height: 100px;
 }
 </style>

@@ -1,0 +1,329 @@
+[
+  {
+    "Identity": "L-001",
+    "Name": "风铃",
+    "EnglishName": "WindChime",
+    "Level": "ZAYIN",
+    "Damage": {
+      "Type": "WHITE",
+      "Min": 1,
+      "Max": 2
+    },
+    "PeBox": 10,
+    "Normal": 4,
+    "Good": 7,
+    "Inhibition": 2,
+    "Instinct": [
+      60,
+      60,
+      65,
+      65,
+      65
+    ],
+    "Insight": [
+      20,
+      10,
+      0,
+      0,
+      0
+    ],
+    "Attachment": [
+      30,
+      30,
+      30,
+      40,
+      40
+    ],
+    "Repression": [
+      65,
+      65,
+      70,
+      70,
+      75
+    ],
+    "Tips": [
+      "当获得一个Pebox损失一点生命值，当连续成功时，将会受到上次受到生命值的2倍。",
+      "工作结束时，如果获得10个Pebox则获得一个风铃的信物。",
+      "如果工作结果为差则，大概率丢失一点你卡巴拉计数值。"
+    ]
+  },
+  {
+    "Identity": "L-002",
+    "Name": "小秦",
+    "EnglishName": "MrQuin",
+    "Level": "WAW",
+    "Damage": {
+      "Type": "BLACK",
+      "Min": 2,
+      "Max": 3
+    },
+    "PeBox": 24,
+    "Normal": 10,
+    "Good": 20,
+    "Inhibition": 4,
+    "Instinct": [
+      10,
+      30,
+      50,
+      50,
+      50
+    ],
+    "Insight": [
+      20,
+      30,
+      30,
+      30,
+      30
+    ],
+    "Attachment": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Repression": [
+      40,
+      50,
+      55,
+      55,
+      55
+    ],
+    "Tips": [
+      "当你获得一个红色的PeBox的时候，你会变得很丢人，本次在小秦直播间受到的伤害翻倍。",
+      "如果你累计获得5个红色Pebox，小秦会觉得你很丢人，并且接下来的成功率降低为0",
+      "如果结束你的绿色Pebox大于20个则小秦会开始丢人，此时小秦会额外给予你额外的一倍Pebox",
+      "如果你在小秦直播间呆超过30秒没有开始工作，小秦就会下播开始摸鱼，强行让你返回主页面。"
+    ]
+  },
+  {
+    "Identity": "L-22",
+    "Name": "交界线",
+    "EnglishName": "boundary",
+    "Level": "WAW",
+    "Damage": {
+      "Type": "BLACK",
+      "Min": 2,
+      "Max": 6
+    },
+    "PeBox": 26,
+    "Normal": 0,
+    "Good": 25,
+    "Inhibition": 0,
+    "Instinct": [
+      35,
+      50,
+      55,
+      20,
+      11
+    ],
+    "Insight": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Attachment": [
+      65,
+      50,
+      20,
+      5,
+      0
+    ],
+    "Repression": [
+      25,
+      35,
+      45,
+      55,
+      65
+    ],
+    "Tips": [
+      "工作成果不可能为差，当PE-BOX全部为绿色时，会触发特殊事件。",
+      "工作结果不会评为差，若工作结束时PE-BOX全为绿色的话，则获得该异想体的 永久 手部 饰品“分界线”（默认锁定，不会被后来的饰品占用）",
+      "若工作结束时绿色PE-BOX不超过12个，则工作结束时你会看到该异想体向你缓缓走来，并掏出一直藏在身后的“分界线”，用锋利的一处缓缓割掉你身上所有的肉。"
+    ]
+  },
+  {
+    "Identity": "L-003",
+    "Name": "嘉然",
+    "EnglishName": "Diana",
+    "Level": "ALEPH",
+    "Damage": {
+      "Type": "PALE",
+      "Min": 1,
+      "Max": 3
+    },
+    "PeBox": 32,
+    "Normal": 9,
+    "Good": 26,
+    "Inhibition": 5,
+    "Instinct": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "Insight": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "Attachment": [
+      60,
+      60,
+      60,
+      65,
+      65
+    ],
+    "Repression": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Tips": [
+      "工作时，如果结果为优或者差，将失去所有的Pebox"
+    ]
+  },
+  {
+    "Identity": "L-005",
+    "Name": "神乐七奈",
+    "EnglishName": "KaguraNana",
+    "Level": "ALEPH",
+    "Damage": {
+      "Type": "RED",
+      "Min": 5,
+      "Max": 12
+    },
+    "PeBox": 32,
+    "Normal": 12,
+    "Good": 24,
+    "Inhibition": 5,
+    "Instinct": [
+      65,
+      55,
+      45,
+      35,
+      25
+    ],
+    "Insight": [
+      0,
+      0,
+      15,
+      35,
+      65
+    ],
+    "Attachment": [
+      10,
+      20,
+      30,
+      40,
+      50
+    ],
+    "Repression": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Tips": []
+  },
+  {
+    "Identity": "L-006",
+    "Name": "世界的调律者",
+    "EnglishName": "Binah",
+    "Level": "ALEPH",
+    "Damage": {
+      "Type": "BLACK",
+      "Min": 3,
+      "Max": 5
+    },
+    "PeBox": 36,
+    "Normal": 12,
+    "Good": 9999,
+    "Inhibition": 1,
+    "Instinct": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Insight": [
+      10,
+      10,
+      5,
+      5,
+      5
+    ],
+    "Attachment": [
+      65,
+      60,
+      60,
+      55,
+      50
+    ],
+    "Repression": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "Tips": [
+      "当工作结果为良时，"
+    ]
+  },
+  {
+    "Identity": "L-006",
+    "Name": "世界的调律者",
+    "EnglishName": "Binah",
+    "Level": "ALEPH",
+    "Damage": {
+      "Type": "BLACK",
+      "Min": 3,
+      "Max": 5
+    },
+    "PeBox": 36,
+    "Normal": 12,
+    "Good": 9999,
+    "Inhibition": 1,
+    "Instinct": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Insight": [
+      10,
+      10,
+      5,
+      5,
+      5
+    ],
+    "Attachment": [
+      65,
+      60,
+      60,
+      55,
+      50
+    ],
+    "Repression": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "Tips": [
+      "当工作结果为良时，"
+    ]
+  }
+]

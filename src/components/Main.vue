@@ -6,12 +6,12 @@
         <p>
           <a-row>
             <a-col :span="12">
-              <img class="icon" src="@/assets/Icon/Coin.png" />：{{
+              <img class="icon" src="@/assets/icon/Coin.png" />：{{
                 jsonData.Money
               }}
             </a-col>
             <a-col :span="12">
-              <img class="icon" src="@/assets/Icon/Pebox.png" />：{{
+              <img class="icon" src="@/assets/icon/Pebox.png" />：{{
                 jsonData.SavePebox
               }}
             </a-col>
@@ -20,12 +20,12 @@
         <p>
           <a-row>
             <a-col :span="12">
-              <img class="icon" src="@/assets/Icon/本能.png" />：{{
+              <img class="icon" src="@/assets/icon/本能.png" />：{{
                 jsonData.Courage
               }}
             </a-col>
             <a-col :span="12">
-              <img class="icon" src="@/assets/Icon/洞察.png" />：{{
+              <img class="icon" src="@/assets/icon/洞察.png" />：{{
                 jsonData.Cautious
               }}
             </a-col>
@@ -34,26 +34,25 @@
         <p>
           <a-row>
             <a-col :span="12">
-              <img class="icon" src="@/assets/Icon/沟通.png" />：{{
+              <img class="icon" src="@/assets/icon/沟通.png" />：{{
                 jsonData.Discipline
               }}
             </a-col>
             <a-col :span="12">
-              <img class="icon" src="@/assets/Icon/压迫.png" />：{{
+              <img class="icon" src="@/assets/icon/压迫.png" />：{{
                 jsonData.Justice
               }}
             </a-col>
           </a-row>
         </p>
         <p>
-          剩余工作/抚摸次数：<span
-            v-for="n in jsonData.WorkCount"
-            v-bind:key="n"
-            ><img src="@/assets/Icon/Work.png" class="icon" />
-          </span>
-          <span v-for="n in jsonData.HeartCount" v-bind:key="n.this"
-            ><img src="@/assets/Icon/Love.png" class="icon" />
-          </span>
+          剩余工作/抚摸次数：<span v-if="jsonData.WorkCount > 0"
+            ><span v-for="n in jsonData.WorkCount" v-bind:key="n"
+              ><img src="@/assets/icon/Work.png" class="icon" /> </span></span
+          ><span v-if="jsonData.HeartCount > 0">
+            <span v-for="n in jsonData.HeartCount" v-bind:key="n.this"
+              ><img src="@/assets/icon/Love.png" class="icon" /> </span
+          ></span>
         </p>
       </a-card>
     </a-col>
@@ -100,8 +99,10 @@ export default class Main extends Vue {
     var _this = this;
     axios({
       method: "post",
-      url: `${Home.url}/test`,
-      data: JSON.stringify({}),
+      url: `${Home.url}/user/getUserInfo`,
+      data: JSON.stringify({
+        relation: localStorage.relation,
+      }),
       timeout: 1000,
     })
       .then(function (response) {
@@ -109,10 +110,13 @@ export default class Main extends Vue {
         _this.jsonData = a.data;
         localStorage.Money = _this.jsonData.Money;
         localStorage.Pebox = _this.jsonData.SavePebox;
-        console.log(_this.jsonData);
+        localStorage.Courage = _this.jsonData.Courage;
+        localStorage.Cautious = _this.jsonData.Cautious;
+        localStorage.Discipline = _this.jsonData.Discipline;
+        localStorage.Justice = _this.jsonData.Justice;
       })
       .catch(function (err) {
-        console.log(err);
+        //window.location.href = "http://www.yumiswindchime.cn:8085/Login.html";
       });
   }
 }
@@ -141,5 +145,8 @@ p {
 }
 h2 {
   font-size: 200%;
+}
+h1 {
+  font-size: 250%;
 }
 </style>

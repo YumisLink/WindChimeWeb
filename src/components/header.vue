@@ -8,13 +8,13 @@
         <a-icon type="crown" theme="twoTone" />主页
       </a-menu-item>
       <a-menu-item key="A" @click="onShopClick">
-        <a-icon type="bank" />商店
+        <a-icon type="bank" />商店（未实现）
       </a-menu-item>
       <a-menu-item key="B" @click="onWorkClick">
         <a-icon type="tool" />工作
       </a-menu-item>
       <a-menu-item key="center" @click="onDrawClick">
-        <a-icon type="book" />抽卡
+        <a-icon type="star" theme="filled" />抽卡（未实现）
       </a-menu-item>
       <a-menu-item key="decorator" @click="onFishClick">
         <i
@@ -47,10 +47,10 @@
             ></path>
           </svg>
         </i>
-        钓鱼
+        钓鱼（未实现）
       </a-menu-item>
       <a-menu-item key="export" @click="onJewelryClick">
-        <a-icon type="sketch" />饰品
+        <a-icon type="sketch" />饰品（未实现）
       </a-menu-item>
       <!-- <a-menu-item key="f"> <a-icon type="appstore" />控制</a-menu-item> -->
       <a-avatar class="a-avatar BigMarginRight">
@@ -60,8 +60,8 @@
     </a-menu>
     <a-layout id="components-layout-demo-top" class="layout">
       <a-layout-content justify="space-around" align="middle">
-        <a-col :span="3"></a-col>
-        <a-col :span="18" class="context">
+        <a-col :span="1"></a-col>
+        <a-col :span="22" class="context">
           <template v-if="page === 'Main'"><Main></Main></template>
           <template v-if="page === 'Shop'"><Shop></Shop></template>
           <template v-if="page === 'Work'"><Work></Work></template>
@@ -69,7 +69,7 @@
           <template v-if="page === 'Fish'"><Fish></Fish></template>
           <template v-if="page === 'Jewelry'"><Jewelry></Jewelry></template>
         </a-col>
-        <a-col :span="3"> </a-col>
+        <a-col :span="1"> </a-col>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
         Ant Design ©2018 Created by Ant UED
