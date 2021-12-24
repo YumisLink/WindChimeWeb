@@ -218,7 +218,7 @@ export default class Work extends Vue {
     document.title = "风铃-收容所";
     //this.nowObj = this.Objs[this.jsonData.WorkObjectId];
     var _this = this;
-    if (localStorage.WorkObject == null)
+    if (localStorage.WorkObject == null || localStorage.WorkObject == undefined)
       axios({
         method: "post",
         url: `${Home.url}/user/getWorkObject`,
@@ -237,9 +237,6 @@ export default class Work extends Vue {
           console.log("gg");
         });
     else {
-      console.log(1);
-      console.log(_this.Objs[localStorage.WorkObject]);
-      console.log(1);
       this.nowObj = _this.Objs[localStorage.WorkObject];
     }
   }

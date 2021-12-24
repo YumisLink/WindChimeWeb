@@ -46,12 +46,13 @@
           </a-row>
         </p>
         <p>
-          剩余工作/抚摸次数：<span v-if="jsonData.WorkCount > 0"
-            ><span v-for="n in jsonData.WorkCount" v-bind:key="n"
-              ><img src="@/assets/icon/Work.png" class="icon" /> </span></span
-          ><span v-if="jsonData.HeartCount > 0">
-            <span v-for="n in jsonData.HeartCount" v-bind:key="n.this"
-              ><img src="@/assets/icon/Love.png" class="icon" /> </span
+          剩余工作/抚摸次数：<span v-if="jsonData.WorkCount > 0">
+            <span v-for="n in jsonData.WorkCount" v-bind:key="n">
+              <img src="@/assets/icon/Work.png" class="icon" /> </span
+          ></span>
+          <span v-if="jsonData.HeartCount > 0">
+            <span v-for="n in jsonData.HeartCount" v-bind:key="n.this">
+              <img src="@/assets/icon/Love.png" class="icon" /> </span
           ></span>
         </p>
       </a-card>
@@ -145,6 +146,10 @@ p {
 }
 h2 {
   font-size: 200%;
+}
+h3 {
+  font-size: 130%;
+  font: bold;
 }
 h1 {
   font-size: 250%;

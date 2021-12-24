@@ -7,37 +7,43 @@
       @cancel="() => setModal1Visible(false)"
       :width="1200"
     >
-      <a-row>
-        <a-col :span="4.5">
-          <a-card style="width: 100%"
-            ><a-card-grid
-              style="width: 20%; text-align: center"
-              v-for="card in resultCard"
-              v-bind:key="card.this"
-              hoverable
-              @click="
-                () => {
-                  card.click = 1;
-                }
-              "
-            >
-              <div v-if="card.click === 1">
-                <img
-                  :src="require('@/assets/cards/' + card.name + '.jpg')"
-                  style="width: 100%"
-                />
-                {{ cardsIndex[card.name] }}
-                {{ card.name }}
-              </div>
-              <img
-                v-else
-                src="@/assets/cards/cardBack.jpg"
-                style="width: 100%"
-              />
-            </a-card-grid>
-          </a-card>
-        </a-col>
-      </a-row>
+      <a-card style="width: 100%"
+        ><a-card-grid
+          style="width: 20%; text-align: center"
+          v-for="card in resultCard"
+          v-bind:key="card.this"
+          hoverable
+          :class="!card.click ? '' : IndexColor[card.star]"
+          @click="
+            () => {
+              card.click = 1;
+            }
+          "
+        >
+          <div v-if="card.click === 1">
+            <img
+              :src="require('@/assets/cards/' + card.uri + '.jpg')"
+              style="width: 100%"
+            />
+          </div>
+          <img v-else src="@/assets/cards/cardBack.jpg" style="width: 100%" />
+        </a-card-grid>
+      </a-card>
+      <a-card style="width: 100%"
+        ><a-card-grid
+          style="width: 20%; text-align: center"
+          v-for="card in resultCard"
+          v-bind:key="card.this"
+          hoverable
+        >
+          <h3 v-if="card.click === 1">{{ card.name }}</h3>
+          <span v-if="card.click === 1 && card.star > 0">
+            <span v-for="i in card.star" v-bind:key="i"
+              ><a-icon type="star" theme="filled" style="color: #ffda2c"
+            /></span>
+          </span>
+        </a-card-grid>
+      </a-card>
     </a-modal>
     <a-row>
       <a-col :span="24" style="margin: 20px">
@@ -56,21 +62,28 @@
 import { Component, Vue } from "vue-property-decorator";
 @Component({})
 export default class Draw extends Vue {
+  IndexColor = ["zero", "one", "two", "three", "four", "five"];
   resultCard = [{}];
-  cardsIndex = require("@/assets/data/CardIndexName.json")[0];
-  cards = require("@/assets/data/CardName.json");
+  cards = require("@/assets/data/CardData.json");
   public created() {
     document.title = "风铃-抽卡";
-    console.log(this.cardsIndex);
   }
   onClickCard() {
     this.setModal1Visible(true);
     this.resultCard = [];
     for (let i = 0; i < 5; i++) {
       var it = Math.floor(Math.random() * this.cards.length);
-      this.resultCard.push({
-        name: this.cards[it],
-        click: 0,
+      this.cards.forEach((element: any) => {
+        if (element.id == it) {
+          var ps = {
+            click: 0,
+            name: element.name,
+            uri: element.uri,
+            star: parseInt(element.star),
+          };
+          this.resultCard.push(ps);
+          console.log(ps);
+        }
       });
     }
   }
@@ -90,5 +103,14 @@ export default class Draw extends Vue {
   width: 500px;
   height: 120px;
   margin-bottom: 20px;
+}
+.three {
+  background: rgb(129, 129, 129);
+}
+.four {
+  background: rgb(108, 123, 255);
+}
+.five {
+  background: rgb(255, 215, 82);
 }
 </style>

@@ -1,4 +1,3 @@
 # WindChimeWeb
-the Web for WindChimeBot
-
-172.0.0.1:1919/abc/abc/abc
+the Vue-Web-Project for WindChime
+visit www.yumiswindchime.cn:8085/Login.html to use
