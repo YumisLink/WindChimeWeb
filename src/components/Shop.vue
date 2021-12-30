@@ -28,7 +28,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import ShopCard from "@/components/shop-card.vue";
-import ShopJewelry from "@/components/shop-Jewelry.vue";
+import ShopJewelry from "@/components/shop-relics.vue";
 @Component({
   components: {
     ShopCard,

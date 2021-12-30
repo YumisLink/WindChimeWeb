@@ -1,0 +1,352 @@
+[
+  {
+    "group": "Malkuth",
+    "position": "head",
+    "englishName": "ScorchedGirl",
+    "name": "黄蜂",
+    "id": "0"
+  },
+  {
+    "group": "Malkuth",
+    "position": "earring",
+    "englishName": "HappyTeddy",
+    "name": "翅振",
+    "id": "1"
+  },
+  {
+    "group": "Malkuth",
+    "position": "necklace",
+    "englishName": "FairyFestival",
+    "name": "终末之光",
+    "id": "2"
+  },
+  {
+    "group": "Malkuth",
+    "position": "bracelet",
+    "englishName": "QueenBee",
+    "name": "忘却",
+    "id": "3"
+  },
+  {
+    "group": "Malkuth",
+    "position": "ring",
+    "englishName": "SnowWhiteApple",
+    "name": "翠枝",
+    "id": "4"
+  },
+  {
+    "group": "Yesod",
+    "position": "head",
+    "englishName": "ForsakenMurderer",
+    "name": "和弦",
+    "id": "5"
+  },
+  {
+    "group": "Yesod",
+    "position": "earring",
+    "englishName": "All-AroundHelper",
+    "name": "庄严哀悼",
+    "id": "6"
+  },
+  {
+    "group": "Yesod",
+    "position": "necklace",
+    "englishName": "SingingMachine",
+    "name": "魔弹",
+    "id": "7"
+  },
+  {
+    "group": "Yesod",
+    "position": "bracelet",
+    "englishName": "FuneralDeadButterfiles",
+    "name": "悔恨",
+    "id": "8"
+  },
+  {
+    "group": "Yesod",
+    "position": "ring",
+    "englishName": "DerFreischütz",
+    "name": "Mk5-2",
+    "id": "9"
+  },
+  {
+    "group": "Hod",
+    "position": "head",
+    "englishName": "ShyLook",
+    "name": "黑天鹅",
+    "id": "10"
+  },
+  {
+    "group": "Hod",
+    "position": "earring",
+    "englishName": "RedShoes",
+    "name": "此刻的神情",
+    "id": "11"
+  },
+  {
+    "group": "Hod",
+    "position": "necklace",
+    "englishName": "SpiderBud",
+    "name": "蕾蒂希亚",
+    "id": "12"
+  },
+  {
+    "group": "Hod",
+    "position": "bracelet",
+    "englishName": "Leatitia",
+    "name": "赤瞳",
+    "id": "13"
+  },
+  {
+    "group": "Hod",
+    "position": "ring",
+    "englishName": "BlackSwan",
+    "name": "血欲",
+    "id": "14"
+  },
+  {
+    "group": "Netzach",
+    "position": "head",
+    "englishName": "FragmentUniverse",
+    "name": "Da-Capo",
+    "id": "15"
+  },
+  {
+    "group": "Netzach",
+    "position": "earring",
+    "englishName": "GalaxyChild",
+    "name": "余香",
+    "id": "16"
+  },
+  {
+    "group": "Netzach",
+    "position": "necklace",
+    "englishName": "Porccubus",
+    "name": "我们的银河",
+    "id": "17"
+  },
+  {
+    "group": "Netzach",
+    "position": "bracelet",
+    "englishName": "Alriune",
+    "name": "欢愉",
+    "id": "18"
+  },
+  {
+    "group": "Netzach",
+    "position": "ring",
+    "englishName": "SilentOrchestra",
+    "name": "彼方的碎片",
+    "id": "19"
+  },
+  {
+    "group": "Tiphereth",
+    "position": "head",
+    "englishName": "HatredQueen",
+    "name": "虚无缥缈",
+    "id": "20"
+  },
+  {
+    "group": "Tiphereth",
+    "position": "earring",
+    "englishName": "DespairKnight",
+    "name": "以爱与憎之名",
+    "id": "21"
+  },
+  {
+    "group": "Tiphereth",
+    "position": "necklace",
+    "englishName": "GreedKing",
+    "name": "盲眼怒火",
+    "id": "22"
+  },
+  {
+    "group": "Tiphereth",
+    "position": "bracelet",
+    "englishName": "WrathServant",
+    "name": "闪金冲锋",
+    "id": "23"
+  },
+  {
+    "group": "Tiphereth",
+    "position": "ring",
+    "englishName": "NihilJester",
+    "name": "泪锋之剑",
+    "id": "24"
+  },
+  {
+    "group": "Gebura",
+    "position": "head",
+    "englishName": "RedRidingMercenary",
+    "name": "拟态",
+    "id": "25"
+  },
+  {
+    "group": "Gebura",
+    "position": "earring",
+    "englishName": "BadWolf",
+    "name": "笑面",
+    "id": "26"
+  },
+  {
+    "group": "Gebura",
+    "position": "necklace",
+    "englishName": "SmillingBodiesMountain",
+    "name": "咳血症",
+    "id": "27"
+  },
+  {
+    "group": "Gebura",
+    "position": "bracelet",
+    "englishName": "Nosferatu",
+    "name": "猩红创痕",
+    "id": "28"
+  },
+  {
+    "group": "Gebura",
+    "position": "ring",
+    "englishName": "NothingThere",
+    "name": "郁蓝创痕",
+    "id": "29"
+  },
+  {
+    "group": "Chesed",
+    "position": "head",
+    "englishName": "Scarecrow",
+    "name": "褪色记忆",
+    "id": "30"
+  },
+  {
+    "group": "Chesed",
+    "position": "earring",
+    "englishName": "Woodsman",
+    "name": "虚伪王座",
+    "id": "31"
+  },
+  {
+    "group": "Chesed",
+    "position": "necklace",
+    "englishName": "RoadHome-ScaredyCat",
+    "name": "归巢本能",
+    "id": "32"
+  },
+  {
+    "group": "Chesed",
+    "position": "bracelet",
+    "englishName": "Ozma",
+    "name": "丰收",
+    "id": "33"
+  },
+  {
+    "group": "Chesed",
+    "position": "ring",
+    "englishName": "TellsLieAdult",
+    "name": "砍伐",
+    "id": "34"
+  },
+  {
+    "group": "Binah",
+    "position": "head",
+    "englishName": "BigBird",
+    "name": "薄冥",
+    "id": "35"
+  },
+  {
+    "group": "Binah",
+    "position": "earring",
+    "englishName": "PunishingBird",
+    "name": "终末",
+    "id": "36"
+  },
+  {
+    "group": "Binah",
+    "position": "necklace",
+    "englishName": "JudgementBird",
+    "name": "目灯",
+    "id": "37"
+  },
+  {
+    "group": "Binah",
+    "position": "bracelet",
+    "englishName": "ApocalypseBird",
+    "name": "正义裁决",
+    "id": "38"
+  },
+  {
+    "group": "Binah",
+    "position": "ring",
+    "englishName": "ApocalypseRoland",
+    "name": "尖喙",
+    "id": "39"
+  },
+  {
+    "group": "Hokma",
+    "position": "head",
+    "englishName": "BurrowingHeaven",
+    "name": "失乐园",
+    "id": "40"
+  },
+  {
+    "group": "Hokma",
+    "position": "earring",
+    "englishName": "SilencePrice",
+    "name": "忏悔",
+    "id": "41"
+  },
+  {
+    "group": "Hokma",
+    "position": "necklace",
+    "englishName": "BlueStar",
+    "name": "新星之声",
+    "id": "42"
+  },
+  {
+    "group": "Hokma",
+    "position": "bracelet",
+    "englishName": "OneSinHundreadGoodDeed",
+    "name": "死寂",
+    "id": "43"
+  },
+  {
+    "group": "Hokma",
+    "position": "ring",
+    "englishName": "WhiteNight",
+    "name": "天堂",
+    "id": "44"
+  },
+  {
+    "group": "Keter",
+    "position": "head",
+    "englishName": "BloodBath",
+    "name": "罪恶感",
+    "id": "45"
+  },
+  {
+    "group": "Keter",
+    "position": "earring",
+    "englishName": "AspirationHeart",
+    "name": "热望",
+    "id": "46"
+  },
+  {
+    "group": "Keter",
+    "position": "necklace",
+    "englishName": "Pinocchio",
+    "name": "霜雕",
+    "id": "47"
+  },
+  {
+    "group": "Keter",
+    "position": "bracelet",
+    "englishName": "Snowqueen",
+    "name": "提线木偶",
+    "id": "48"
+  },
+  {
+    "group": "Keter",
+    "position": "ring",
+    "englishName": "SilentGirl",
+    "name": "割腕",
+    "id": "49"
+  }
+]

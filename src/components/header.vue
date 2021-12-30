@@ -85,7 +85,7 @@ import Shop from "@/components/Shop.vue";
 import Work from "@/components/Work.vue";
 import Draw from "@/components/Draw.vue";
 import Fish from "@/components/Fish.vue";
-import Jewelry from "@/components/Jewelry.vue";
+import Jewelry from "@/components/Relics.vue";
 @Component({
   components: {
     Main,
@@ -100,6 +100,9 @@ export default class Header extends Vue {
   public name = "";
   public created() {
     this.name = localStorage.name ? "" : localStorage.name;
+    if (localStorage.relation == null || localStorage.relation == undefined) {
+      window.location.href = "http://110.42.178.71:8085/Login.html";
+    }
   }
   public current = [];
   public page = "Main";

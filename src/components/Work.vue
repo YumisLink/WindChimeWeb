@@ -223,7 +223,7 @@ export default class Work extends Vue {
         method: "post",
         url: `${Home.url}/user/getWorkObject`,
         data: JSON.stringify({
-          relation: localStorage.relation,
+          token: localStorage.relation,
         }),
         timeout: 2000,
       })
@@ -268,7 +268,7 @@ export default class Work extends Vue {
       method: "post",
       url: `${Home.url}/user/startWork`,
       data: JSON.stringify({
-        relation: localStorage.relation,
+        token: localStorage.relation,
         workObject: parseInt(localStorage.WorkObject),
         workType: param,
       }),

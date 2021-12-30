@@ -2,15 +2,15 @@
   <div>
     <a-col :span="24">
       <a-card align="left" style="margin: 20px">
-        <h2 style="color: black">{{ jsonData.name }}</h2>
+        <h2 style="color: black">{{ myname }}</h2>
         <p>
           <a-row>
-            <a-col :span="12">
+            <a-col :xs="24" :sm="12">
               <img class="icon" src="@/assets/icon/Coin.png" />：{{
                 jsonData.Money
               }}
             </a-col>
-            <a-col :span="12">
+            <a-col :sm="12" :xs="24">
               <img class="icon" src="@/assets/icon/Pebox.png" />：{{
                 jsonData.SavePebox
               }}
@@ -19,12 +19,12 @@
         </p>
         <p>
           <a-row>
-            <a-col :span="12">
+            <a-col :sm="12" :xs="24">
               <img class="icon" src="@/assets/icon/本能.png" />：{{
                 jsonData.Courage
               }}
             </a-col>
-            <a-col :span="12">
+            <a-col :sm="12" :xs="24">
               <img class="icon" src="@/assets/icon/洞察.png" />：{{
                 jsonData.Cautious
               }}
@@ -33,12 +33,12 @@
         </p>
         <p>
           <a-row>
-            <a-col :span="12">
+            <a-col :sm="12" :xs="24">
               <img class="icon" src="@/assets/icon/沟通.png" />：{{
                 jsonData.Discipline
               }}
             </a-col>
-            <a-col :span="12">
+            <a-col :sm="12" :xs="24">
               <img class="icon" src="@/assets/icon/压迫.png" />：{{
                 jsonData.Justice
               }}
@@ -71,8 +71,9 @@ import Home from "@/views/Home.vue";
   components: {},
 })
 export default class Main extends Vue {
+  myname = "wochao";
   public jsonData = {
-    name: "NUll",
+    name: "a",
     QQ: 0,
     WorkCount: 0,
     HeartCount: 0,
@@ -90,25 +91,28 @@ export default class Main extends Vue {
     UseEGOCard: 0,
     AllCard: [],
     Inhibition: [],
-    LatestLogin: "2021-12-17T23:45:57.37358+08:00",
     Account: null,
     Password: null,
   };
   public HeadUrl = "";
   public created() {
     document.title = "风铃-主页";
+    axios.defaults.headers.post["Content-Type"] = "application/json";
     var _this = this;
     axios({
       method: "post",
-      url: `${Home.url}/user/getUserInfo`,
+      url: `${Home.url}${Home.getUserMessage}`,
+      headers: { "content-type": "application/json" },
       data: JSON.stringify({
-        relation: localStorage.relation,
+        token: localStorage.relation,
       }),
       timeout: 1000,
     })
       .then(function (response) {
+        if (!response.data.success) return;
         var a = response.data;
         _this.jsonData = a.data;
+        _this.myname = _this.jsonData.name;
         localStorage.Money = _this.jsonData.Money;
         localStorage.Pebox = _this.jsonData.SavePebox;
         localStorage.Courage = _this.jsonData.Courage;
@@ -117,8 +121,10 @@ export default class Main extends Vue {
         localStorage.Justice = _this.jsonData.Justice;
       })
       .catch(function (err) {
-        //window.location.href = "http://www.yumiswindchime.cn:8085/Login.html";
+        console.log("?");
+        window.location.href = "/#/login";
       });
+    _this.myname = _this.jsonData.name;
   }
 }
 </script>
